@@ -12,6 +12,7 @@ endif
 Bundle 'tsaleh/vim-matchit'
 filetype plugin indent on     " required!
 
+set nobackup
 set splitright
 set splitbelow
 let g:netrw_localcopycmd="copy"
