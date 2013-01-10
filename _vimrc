@@ -1,10 +1,11 @@
 "
 " Sharing .vimrc between Linux and Windows.
+" @see http://holypp.hatenablog.com/entry/20110515/1305443997
 "
 " * For Windows
 " install msysgit first and make curl.cmd according to helps:
 " 	https://github.com/gmarik/vundle/wiki/Vundle-for-Windows
-" 
+"
 " * Create dotfiles repository as:
 "  $ mkdir ~/dotfiles/
 "  $ cd ~/dotfiles/
@@ -16,6 +17,9 @@
 "  $ git commit -m "add vundle"
 "  $ git remote add origin https://github.com/username/dotfiles.git
 "	 OR git remote add origin git@github.com:username/dotfiles
+"  $ echo '/vimfiles/bundle' >  ~/dotfiles/.gitignore
+"  $ git add .gitignore
+"  $ git commit -m "add .gitignore"
 "  $ git push origin master
 "
 " * Clone the repository as:
@@ -32,7 +36,7 @@
 let s:is_windows = has('win95') || has('win16') || has('win32') || has('win64')
 set nocompatible	" required by some plugins.
 set nobackup
-set ch=2			" Make command line two lines high
+set cmdheight=2		" Make command line two lines high
 set mousehide		" Hide the mouse when typing text
 set tabstop=4
 set shiftwidth=4
