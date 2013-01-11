@@ -13,6 +13,7 @@
 "
 colorscheme morning
 hi SpecialKey guifg=#104b56 guibg=#cccccc
+hi Visual guibg=grey70
 
 "
 " FONT configuration
