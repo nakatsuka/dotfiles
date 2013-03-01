@@ -129,7 +129,7 @@ nnoremap <leader>t :<C-u>NERDTreeToggle<CR>
 "" Prevent including vimrc_example, kaoriya's VIM  default
 "let g:no_vimrc_example = 1 "
 "" override VIMRC_EXAMPLE settings
-"autocmd FileType text setlocal textwidth=0
+autocmd FileType text setlocal textwidth=0
 
 " override Japanese UTF-8 vim default
 set nohidden
