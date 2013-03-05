@@ -174,14 +174,14 @@ let g:ctrlp_open_func = { 'files': '_CTRLP_OpenWithExternalProgram' }
 " COLORSCHEME configuration
 "
 syntax enable
-set background=dark
+"set background=dark
 " termtrans=1 works well with windows mintty/gvim transparency
-let g:solarized_termtrans=1
-let g:solarized_contrast='high'
-let g:solarized_visibility='high'
-colorscheme solarized
+"let g:solarized_termtrans=1
+"let g:solarized_contrast='high'
+"let g:solarized_visibility='high'
+"colorscheme solarized
 " ctermfg=Black is good on solarized mintty, any better options?
-hi SpecialKey ctermfg=Black
+"hi SpecialKey ctermfg=Black
 "hi NonText ctermbg=Black
 
 " vim:set ft=vim sw=4 ts=4:
