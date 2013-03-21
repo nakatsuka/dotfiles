@@ -75,6 +75,9 @@ endif
 " file explorer
 Bundle 'scrooloose/nerdtree'
 
+" session management
+Bundle 'xolox/vim-session'
+
 " fuzzy finder
 Bundle 'kien/ctrlp.vim'
 
@@ -93,13 +96,13 @@ Bundle 'honza/snipmate-snippets'
 Bundle 'garbas/vim-snipmate'
 
 " colorscheme
-Bundle 'altercation/vim-colors-solarized'
+"Bundle 'altercation/vim-colors-solarized'
 
 " pseudo clipboard register for non-GUI version of Vim 
-Bundle 'kana/vim-fakeclip'
+"Bundle 'kana/vim-fakeclip'
 
-Bundle 'vim-scripts/Align'
-Bundle 'vim-scripts/SQLUtilities'
+"Bundle 'vim-scripts/Align'
+"Bundle 'vim-scripts/SQLUtilities'
 
 filetype plugin indent on	"required!
 
@@ -125,6 +128,9 @@ autocmd BufEnter * lcd %:p:h  " tab-independent (indeed!)
 ca cd NERDTree
 nnoremap <leader>o :<C-u>NERDTreeFind<CR>
 nnoremap <leader>t :<C-u>NERDTreeToggle<CR>
+
+" session.vim
+set sessionoptions+=resize
 
 "" Prevent including vimrc_example, kaoriya's VIM  default
 "let g:no_vimrc_example = 1 "
