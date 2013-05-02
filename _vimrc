@@ -72,11 +72,14 @@ else
 	call vundle#rc()
 endif
 
+" VCS integration
+Bundle 'vim-scripts/vcscommand.vim'
+
 " file explorer
 Bundle 'scrooloose/nerdtree'
 
 " session management
-Bundle 'xolox/vim-session'
+"Bundle 'xolox/vim-session'
 
 " fuzzy finder
 Bundle 'kien/ctrlp.vim'
@@ -130,7 +133,7 @@ nnoremap <leader>o :<C-u>NERDTreeFind<CR>
 nnoremap <leader>t :<C-u>NERDTreeToggle<CR>
 
 " session.vim
-set sessionoptions+=resize
+"set sessionoptions+=resize
 
 "" Prevent including vimrc_example, kaoriya's VIM  default
 "let g:no_vimrc_example = 1 "
@@ -189,5 +192,9 @@ syntax enable
 " ctermfg=Black is good on solarized mintty, any better options?
 "hi SpecialKey ctermfg=Black
 "hi NonText ctermbg=Black
+
+let g:snipMate = {}
+let g:snipMate.scope_aliases = {} 
+let g:snipMate.scope_aliases.smarty = 'php'
 
 " vim:set ft=vim sw=4 ts=4:
