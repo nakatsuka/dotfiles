@@ -1,12 +1,11 @@
-""
-"" COLORSCHEME solarized
-""
-"set background=dark
-"colorscheme solarized
-"hi SpecialKey guifg=#003b46
-"hi NonText guibg=#001b26 guifg=Gray40
-"gui
-"set transparency=235
+let s:is_windows = has('win95') || has('win16') || has('win32') || has('win64')
+
+"
+" COMMAND
+"
+if s:is_windows
+	ca exp !start explorer .
+endif
 
 "
 " COLORSCHEME morning
@@ -20,16 +19,8 @@ hi Visual guibg=grey70
 "
 " @see kaoriya default gvimrc
 "
-if has('win32')
+if s:is_windows
 	set guifont=Migu\ 1M:h12
-	"set guifont=Ricty:h12
-	"" guifontwide work with only enc=utf8
-	"" in kaoriya version VIM, to enable enc=utf8, copy switches/catalog/utf8.vim to switches/enabled/
-	"set guifont=Inconsolata:h13 
-	"set guifontwide=Migu\ 1M:h12
-	"" @see Osaka font license
-	"set guifont=Osaka－等幅:h12
-	"set guifont=Osaka_unicode:h12
 	" Number of pixel lines inserted between characters.
 	set linespace=1
 	" 一部のUCS文字の幅を自動計測して決める
@@ -42,3 +33,4 @@ elseif has('xfontset')
 	" UNIX用 (xfontsetを使用)
 	set guifontset=a14,r14,k14
 endif
+
