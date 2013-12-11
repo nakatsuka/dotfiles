@@ -92,12 +92,18 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'snipmate-snippets'
 Bundle 'garbas/vim-snipmate'
 
+"Bundle 'molokai'
+"Bundle 'altercation/vim-colors-solarized'
+Bundle 'wombat256.vim'
+
 "" pseudo clipboard register for non-GUI version of Vim
 "Bundle 'kana/vim-fakeclip'
 
 "" SQL utilities
 "Bundle 'vim-scripts/Align'
 "Bundle 'vim-scripts/SQLUtilities'
+
+Bundle 'mattn/zencoding-vim'
 
 filetype plugin indent on "required!
 
@@ -154,7 +160,5 @@ set helplang=en,ja
 " Override VIMRC_EXAMPLE settings
 "
 autocmd FileType text setlocal textwidth=0
-
-
 
 " vim:set ft=vim sw=4 ts=4:

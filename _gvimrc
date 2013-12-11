@@ -10,9 +10,10 @@ endif
 "
 " COLORSCHEME morning
 "
-colorscheme morning
-hi SpecialKey guifg=#104b56 guibg=#cccccc
-hi Visual guibg=grey70
+"colorscheme morning
+"hi SpecialKey guifg=#104b56 guibg=#cccccc
+"hi Visual guibg=grey70
+colorscheme wombat256mod
 
 "
 " FONT configuration
