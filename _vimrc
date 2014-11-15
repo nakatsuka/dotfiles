@@ -59,52 +59,74 @@ set tags=tags;/
 " * In vim, execute :BundleInstall to install plugins.
 "
 set nocompatible
-filetype off "required!
+"filetype off "required for Vundle!
+
+if has("vim_starting")
+	if s:is_windows
+		set rtp+=~/vimfiles/neobundle.vim/
+	else
+		set rtp+=~/.vim/neobundle.vim/
+	endif
+endif
 
 if s:is_windows
-	set rtp+=~/vimfiles/vundle.git/
-	call vundle#rc('~/vimfiles/bundle/')
+	call neobundle#rc('~/vimfiles/bundle/')
 else
-	set rtp+=~/.vim/vundle.git/
-	call vundle#rc()
+	call neobundle#begin()
 endif
 
 " version control integration
-Bundle 'vim-scripts/vcscommand.vim'
+"Bundle 'vim-scripts/vcscommand.vim'
+"
+"" file tree
+"Bundle 'scrooloose/nerdtree'
+"
+"" file finder
+"Bundle 'kien/ctrlp.vim'
+"
+"" extended matching with "%"
+"Bundle 'tsaleh/vim-matchit'
+"
+"" surronding utilities
+"" (vim-repeat is optional)
+"Bundle 'tpope/vim-repeat'
+"Bundle 'tpope/vim-surround'
+"
+"" snippets
+"Bundle 'MarcWeber/vim-addon-mw-utils'
+"Bundle 'tomtom/tlib_vim'
+"Bundle 'snipmate-snippets'
+"Bundle 'garbas/vim-snipmate'
+"
+""Bundle 'molokai'
+""Bundle 'altercation/vim-colors-solarized'
+"Bundle 'wombat256.vim'
+"
+""" pseudo clipboard register for non-GUI version of Vim
+""Bundle 'kana/vim-fakeclip'
+"
+""" SQL utilities
+""Bundle 'vim-scripts/Align'
+""Bundle 'vim-scripts/SQLUtilities'
+"
+"Bundle 'mattn/zencoding-vim'
 
-" file tree
-Bundle 'scrooloose/nerdtree'
+" solarized
+NeoBundle 'altercation/vim-colors-solarized'
+" mustang
+NeoBundle 'croaker/mustang-vim'
+" jellybeans
+NeoBundle 'nanotech/jellybeans.vim'
+" molokai
+NeoBundle 'tomasr/molokai'
+" phix
+NeoBundle 'stuartherbert/vim-phix-colors'
 
-" file finder
-Bundle 'kien/ctrlp.vim'
+NeoBundle 'Shougo/unite.vim'
+NeoBundle 'ujihisa/unite-colorscheme'
 
-" extended matching with "%"
-Bundle 'tsaleh/vim-matchit'
 
-" surronding utilities
-" (vim-repeat is optional)
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-surround'
-
-" snippets
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'tomtom/tlib_vim'
-Bundle 'snipmate-snippets'
-Bundle 'garbas/vim-snipmate'
-
-"Bundle 'molokai'
-"Bundle 'altercation/vim-colors-solarized'
-Bundle 'wombat256.vim'
-
-"" pseudo clipboard register for non-GUI version of Vim
-"Bundle 'kana/vim-fakeclip'
-
-"" SQL utilities
-"Bundle 'vim-scripts/Align'
-"Bundle 'vim-scripts/SQLUtilities'
-
-Bundle 'mattn/zencoding-vim'
-
+call neobundle#end()
 filetype plugin indent on "required!
 
 "
@@ -113,33 +135,33 @@ filetype plugin indent on "required!
 " see https://raw.github.com/DAddYE/dotfiles/master/.vim/vimrc
 " see http://superuser.com/questions/195022/vim-how-to-synchronize-nerdtree-with-current-opened-tab-file-path
 "
-" stop the standard plugin
-let g:netrw_silent = 1
-let g:netrw_quiet  = 1
-let g:loaded_netrw = 1
-
-let NERDTreeQuitOnOpen  = 0   " don't collapse NERDTree when a file is opened
-let NERDTreeMinimalUI   = 1
-let NERDTreeDirArrows   = 0   " classic
-let NERDTreeChDirMode   = 2   " change CWD whenever root changed
-let NERDTreeIgnore      = []
-let NERDTreeHijackNetrw = 0   " don't use secondary NERD tree
-autocmd BufEnter * lcd %:p:h  " tab-independent (indeed!)
-ca cd NERDTree
-nnoremap <leader>o :<C-u>NERDTreeFind<CR>
-nnoremap <leader>t :<C-u>NERDTreeToggle<CR>
-
+"" stop the standard plugin
+"let g:netrw_silent = 1
+"let g:netrw_quiet  = 1
+"let g:loaded_netrw = 1
 "
-" plugin CtrlP
+"let NERDTreeQuitOnOpen  = 0   " don't collapse NERDTree when a file is opened
+"let NERDTreeMinimalUI   = 1
+"let NERDTreeDirArrows   = 0   " classic
+"let NERDTreeChDirMode   = 2   " change CWD whenever root changed
+"let NERDTreeIgnore      = []
+"let NERDTreeHijackNetrw = 0   " don't use secondary NERD tree
+"autocmd BufEnter * lcd %:p:h  " tab-independent (indeed!)
+"ca cd NERDTree
+"nnoremap <leader>o :<C-u>NERDTreeFind<CR>
+"nnoremap <leader>t :<C-u>NERDTreeToggle<CR>
 "
-let g:ctrlp_use_migemo = 0
-
+""
+"" plugin CtrlP
+""
+"let g:ctrlp_use_migemo = 0
 "
-" plugin SnipMate
-"
-let g:snipMate = {}
-let g:snipMate.scope_aliases = {} 
-let g:snipMate.scope_aliases.smarty = 'php'
+""
+"" plugin SnipMate
+""
+"let g:snipMate = {}
+"let g:snipMate.scope_aliases = {} 
+"let g:snipMate.scope_aliases.smarty = 'php'
 
 "
 " language
@@ -151,10 +173,13 @@ else
 endif
 set helplang=en,ja
 
-""
-"" syntax highlighting
-""
-"syntax enable
+"
+" syntax highlighting
+"
+syntax enable
+colorscheme molokai
+hi SpecialKey ctermbg=232
+"hi Visual guibg=grey70
 
 "
 " Override VIMRC_EXAMPLE settings
