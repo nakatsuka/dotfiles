@@ -1,17 +1,33 @@
 let s:is_windows = has('win95') || has('win16') || has('win32') || has('win64')
+let s:is_mac = has('mac')
+let s:is_unix = has('unix')
+
+augroup vimrc
+    autocmd!
+augroup END
+
 "let g:no_vimrc_example = 1 " Prevent including vimrc_example (see kaoriya's VIM  default)
 
 "set verbose=20
 "set nohidden " Override Japanese UTF-8 vim default
+set number
 set nobackup
-set cmdheight=2 " Make command line two lines high
+set hlsearch
+"set cmdheight=2 " Make command line two lines high
 set mousehide " Hide the mouse when typing text
 set tabstop=4
 set shiftwidth=4
-set listchars=tab:^\ ,trail:\ 
+set expandtab
+set showmatch
+set matchtime=1
+set pumheight=10
+set laststatus=2
+set display=lastline
+"set ambiwidth=double "env VTC_CJK_WIDTH=1 may be needed
+"set cursorline " too slow
+set listchars=tab:^\ ,trail:\_
 set list
-set tags=tags;/
-
+"set tags=tags;/
 
 "
 " Vundle
@@ -58,7 +74,10 @@ set tags=tags;/
 " * Create symbolic links in your home which point to files/directory under dotfiles.
 " * In vim, execute :BundleInstall to install plugins.
 "
-set nocompatible
+"set nocompatible
+if &compatible
+    set nocompatible
+endif
 "filetype off "required for Vundle!
 
 if has("vim_starting")
@@ -110,21 +129,44 @@ endif
 ""Bundle 'vim-scripts/SQLUtilities'
 "
 "Bundle 'mattn/zencoding-vim'
+"
 
 " solarized
 NeoBundle 'altercation/vim-colors-solarized'
-" mustang
-NeoBundle 'croaker/mustang-vim'
-" jellybeans
-NeoBundle 'nanotech/jellybeans.vim'
-" molokai
-NeoBundle 'tomasr/molokai'
-" phix
-NeoBundle 'stuartherbert/vim-phix-colors'
-
+" indentLine
+NeoBundle 'Yggdroot/indentLine'
+" ctrlp
+NeoBundle 'kien/ctrlp.vim'
+" unite
 NeoBundle 'Shougo/unite.vim'
-NeoBundle 'ujihisa/unite-colorscheme'
+"NeoBundle 'ujihisa/unite-colorscheme'
+"NeoBundle 'Shougo/vimproc', {
+"	\'build' : {
+"	\	'windows' : 'make -f make_mingw32.mak',
+"	\	'cygwin' : 'make -f make_cygwin.mak',
+"	\	'mac' : 'make -f make_mac.mak',
+"	\	'unix' : 'make -f make_unix.mak',
+"	\	},
+"	\}
+" airline
+NeoBundle 'bling/vim-airline'
 
+" markdown
+NeoBundleLazy 'kannokanno/previm', {
+			\'autoload': {'filetypes': ['mkd']}}
+NeoBundleLazy 'tyru/open-browser.vim', {
+			\'autoload': {'filetypes': ['mkd']}}
+NeoBundleLazy 'godlygeek/tabular', {
+			\'autoload': {'filetypes': ['mkd']}}
+NeoBundle 'plasticboy/vim-markdown'
+
+" debug
+NeoBundle 'joonty/vdebug', 'bg-connection'
+" php
+NeoBundleLazy 'shawncplus/phpcomplete.vim', {
+			\'autoload': {'filetypes': ['php']}}
+NeoBundleLazy 'joonty/vim-phpqa', {
+			\'autoload': {'filetypes': ['php']}}
 
 call neobundle#end()
 filetype plugin indent on "required!
@@ -155,6 +197,7 @@ filetype plugin indent on "required!
 "" plugin CtrlP
 ""
 "let g:ctrlp_use_migemo = 0
+let g:ctrlp_show_hidden = 1
 "
 ""
 "" plugin SnipMate
@@ -177,13 +220,37 @@ set helplang=en,ja
 " syntax highlighting
 "
 syntax enable
-colorscheme molokai
-hi SpecialKey ctermbg=232
+set background=light
+"let g:solarized_termcolors=256
+colorscheme solarized
+"hi SpecialKey ctermbg=232
 "hi Visual guibg=grey70
+"
+"let g:unite_force_overwrite_statusline = 0
+"##### auto fcitx  ###########
+" https://wiki.archlinux.org/index.php/Fcitx_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#Vim
+let g:input_toggle = 1
+function! FcitxIMEoff()
+   let s:input_status = system("fcitx-remote")
+   if s:input_status == 2
+      let g:input_toggle = 1
+      let l:a = system("fcitx-remote -c")
+   endif
+endfunction
 
-"
-" Override VIMRC_EXAMPLE settings
-"
-autocmd FileType text setlocal textwidth=0
+function! FcitxIMEon()
+   let s:input_status = system("fcitx-remote")
+   if s:input_status != 2 && g:input_toggle == 1
+      let l:a = system("fcitx-remote -o")
+      let g:input_toggle = 0
+   endif
+endfunction
+
+set ttimeoutlen=150
+autocmd vimrc InsertLeave * call FcitxIMEoff()
+autocmd vimrc InsertEnter * call FcitxIMEon()
+"##### auto fcitx end ######
+
+runtime experiments/script.vim
 
 " vim:set ft=vim sw=4 ts=4:
