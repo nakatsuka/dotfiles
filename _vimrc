@@ -6,13 +6,14 @@ augroup vimrc
     autocmd!
 augroup END
 
+set exrc            " enable per-directory .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
 "let g:no_vimrc_example = 1 " Prevent including vimrc_example (see kaoriya's VIM  default)
-
 "set verbose=20
-"set nohidden " Override Japanese UTF-8 vim default
-set number
+"set nohidden " Override Japanese UTF-8 vim default set number
 set nobackup
 set hlsearch
+set showcmd
 "set cmdheight=2 " Make command line two lines high
 set mousehide " Hide the mouse when typing text
 set tabstop=4
@@ -130,6 +131,13 @@ endif
 "
 "Bundle 'mattn/zencoding-vim'
 "
+"
+
+"
+" Operators
+"
+NeoBundle 'kana/vim-operator-user'
+NeoBundle 'tyru/operator-camelize.vim'
 
 " solarized
 NeoBundle 'altercation/vim-colors-solarized'
@@ -151,6 +159,10 @@ NeoBundle 'Shougo/unite.vim'
 " airline
 NeoBundle 'bling/vim-airline'
 
+" codic
+NeoBundle 'koron/codic-vim'
+NeoBundle 'rhysd/unite-codic.vim'
+
 " markdown
 NeoBundleLazy 'kannokanno/previm', {
 			\'autoload': {'filetypes': ['mkd']}}
@@ -167,6 +179,15 @@ NeoBundleLazy 'shawncplus/phpcomplete.vim', {
 			\'autoload': {'filetypes': ['php']}}
 NeoBundleLazy 'joonty/vim-phpqa', {
 			\'autoload': {'filetypes': ['php']}}
+" Don't run messdetector on save (default = 1)
+let g:phpqa_messdetector_autorun = 0
+" Don't run codesniffer on save (default = 1)
+let g:phpqa_codesniffer_autorun = 0
+
+" html
+NeoBundleLazy 'othree/html5.vim', {
+			\'autoload': {'filetypes': ['html']}}
+
 
 call neobundle#end()
 filetype plugin indent on "required!
@@ -250,6 +271,16 @@ set ttimeoutlen=150
 autocmd vimrc InsertLeave * call FcitxIMEoff()
 autocmd vimrc InsertEnter * call FcitxIMEon()
 "##### auto fcitx end ######
+
+"
+" Key mappings
+"
+nnoremap [unite]    <Nop>
+nmap     <Space>u [unite]
+nnoremap <silent> [unite]d :<C-u>Unite codic<CR>
+
+map <Space>c <Plug>(operator-camelize)
+nmap <Space>C <Plug>(operator-decamelize)
 
 runtime experiments/script.vim
 
