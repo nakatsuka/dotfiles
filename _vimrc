@@ -159,6 +159,14 @@ NeoBundle 'Shougo/unite.vim'
 " airline
 NeoBundle 'bling/vim-airline'
 
+" surronding
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-surround'
+
+" camelcasemotion
+NeoBundle 'bkad/CamelCaseMotion'
+
+
 " codic
 NeoBundle 'koron/codic-vim'
 NeoBundle 'rhysd/unite-codic.vim'
@@ -186,7 +194,9 @@ let g:phpqa_codesniffer_autorun = 0
 
 " html
 NeoBundleLazy 'othree/html5.vim', {
-			\'autoload': {'filetypes': ['html']}}
+			\'autoload': {'filetypes': ['html','smarty']}}
+NeoBundleLazy 'mattn/emmet-vim', {
+			\'autoload': {'filetypes': ['html','smarty']}}
 
 
 call neobundle#end()
@@ -219,6 +229,14 @@ filetype plugin indent on "required!
 ""
 "let g:ctrlp_use_migemo = 0
 let g:ctrlp_show_hidden = 1
+"" Unite
+let g:unite_enable_start_insert = 1
+"
+"
+"
+"
+"
+"
 "
 ""
 "" plugin SnipMate
@@ -277,11 +295,31 @@ autocmd vimrc InsertEnter * call FcitxIMEon()
 "
 nnoremap [unite]    <Nop>
 nmap     <Space>u [unite]
+nnoremap <silent> [unite]u :<C-u>Unite<CR>
 nnoremap <silent> [unite]d :<C-u>Unite codic<CR>
 
 map <Space>c <Plug>(operator-camelize)
 nmap <Space>C <Plug>(operator-decamelize)
 
+" Load settings for each location.
+" http://vim-users.jp/2009/12/hack112/
+augroup vimrc-local
+  autocmd!
+  autocmd BufNewFile,BufReadPost * call s:vimrc_local(expand('<afile>:p:h'))
+  autocmd BufReadPre .vimprojects set ft=vim
+augroup END
+function! s:vimrc_local(loc)
+  let files = findfile('.vimprojects', escape(a:loc, ' ') . ';', -1)
+  for i in reverse(filter(files, 'filereadable(v:val)'))
+    source `=i`
+  endfor
+endfunction
+
+" multibyte character detection
+set encoding=utf-8
+set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
+
+" experiments
 runtime experiments/script.vim
 
 " vim:set ft=vim sw=4 ts=4:
