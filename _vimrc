@@ -2,12 +2,13 @@ let s:is_windows = has('win95') || has('win16') || has('win32') || has('win64')
 let s:is_mac = has('mac')
 let s:is_unix = has('unix')
 
+" prevent autocmd duplication
 augroup vimrc
     autocmd!
 augroup END
 
 set exrc            " enable per-directory .vimrc files
-set secure          " disable unsafe commands in local .vimrc files
+"set secure          " disable unsafe commands in local .vimrc files
 "let g:no_vimrc_example = 1 " Prevent including vimrc_example (see kaoriya's VIM  default)
 "set verbose=20
 "set nohidden " Override Japanese UTF-8 vim default set number
@@ -28,7 +29,7 @@ set display=lastline
 "set cursorline " too slow
 set listchars=tab:^\ ,trail:\_
 set list
-"set tags=tags;/
+set tags+=tags;
 
 "
 " Vundle
@@ -98,20 +99,6 @@ endif
 " version control integration
 "Bundle 'vim-scripts/vcscommand.vim'
 "
-"" file tree
-"Bundle 'scrooloose/nerdtree'
-"
-"" file finder
-"Bundle 'kien/ctrlp.vim'
-"
-"" extended matching with "%"
-"Bundle 'tsaleh/vim-matchit'
-"
-"" surronding utilities
-"" (vim-repeat is optional)
-"Bundle 'tpope/vim-repeat'
-"Bundle 'tpope/vim-surround'
-"
 "" snippets
 "Bundle 'MarcWeber/vim-addon-mw-utils'
 "Bundle 'tomtom/tlib_vim'
@@ -119,35 +106,55 @@ endif
 "Bundle 'garbas/vim-snipmate'
 "
 ""Bundle 'molokai'
-""Bundle 'altercation/vim-colors-solarized'
 "Bundle 'wombat256.vim'
 "
 """ pseudo clipboard register for non-GUI version of Vim
 ""Bundle 'kana/vim-fakeclip'
 "
-""" SQL utilities
-""Bundle 'vim-scripts/Align'
-""Bundle 'vim-scripts/SQLUtilities'
-"
-"Bundle 'mattn/zencoding-vim'
-"
 "
 
-"
-" Operators
-"
-NeoBundle 'kana/vim-operator-user'
-NeoBundle 'tyru/operator-camelize.vim'
 
-" solarized
+" # UI
+NeoBundle 'scrooloose/nerdtree'
 NeoBundle 'altercation/vim-colors-solarized'
-" indentLine
 NeoBundle 'Yggdroot/indentLine'
-" ctrlp
+NeoBundle 'bling/vim-airline'
 NeoBundle 'kien/ctrlp.vim'
-" unite
 NeoBundle 'Shougo/unite.vim'
-"NeoBundle 'ujihisa/unite-colorscheme'
+"NeoBundle 'majutsushi/tagbar'
+"let g:tagbar_ctags_bin = 'exuberant_ctags'
+"NeoBundle 'vim-php/tagbar-phpctags.vim'
+
+" # Input
+NeoBundle 'ervandew/supertab'
+NeoBundle 'scrooloose/nerdcommenter'
+NeoBundle 'Shougo/neocomplcache.vim'
+let g:neocomplcache_enable_at_startup = 1
+" ## ultisnips
+NeoBundle 'SirVer/ultisnips'
+NeoBundle 'honza/vim-snippets'
+"let s:bundle = neobundle#get("ultisnips")
+"function! s:bundle.hooks.on_source(bundle)
+    let g:UltiSnipsExpandTrigger="<tab>"
+    let g:UltiSnipsJumpForwardTrigger="<c-b>"
+    let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+    "let g:UltiSnipsSnippetsDir="~/.vim/mysnippets"
+"endfunction
+"unlet s:bundle
+" ## surround
+NeoBundle 'tpope/vim-repeat'
+NeoBundle 'tpope/vim-surround'
+" ## operator-camelize
+"NeoBundle 'kana/vim-operator-user'
+"NeoBundle 'tyru/operator-camelize.vim'
+
+" NeoBundle 'vim-jp/vital.vim'
+" NeoBundle 'vim-scripts/TwitVim'
+"NeoBundle 'Valloric/YouCompleteMe'
+"NeoBundle 'Raimondi/delimitMate'
+"NeoBundle 'jiangmiao/auto-pairs'
+
+" unite
 "NeoBundle 'Shougo/vimproc', {
 "	\'build' : {
 "	\	'windows' : 'make -f make_mingw32.mak',
@@ -156,20 +163,21 @@ NeoBundle 'Shougo/unite.vim'
 "	\	'unix' : 'make -f make_unix.mak',
 "	\	},
 "	\}
-" airline
-NeoBundle 'bling/vim-airline'
-
-" surronding
-NeoBundle 'tpope/vim-repeat'
-NeoBundle 'tpope/vim-surround'
 
 " camelcasemotion
 NeoBundle 'bkad/CamelCaseMotion'
 
+" qfreplace
+NeoBundle 'thinca/vim-qfreplace'
 
 " codic
 NeoBundle 'koron/codic-vim'
 NeoBundle 'rhysd/unite-codic.vim'
+
+" ## SQLUtilities
+NeoBundle 'vim-scripts/Align'
+NeoBundle 'vim-scripts/SQLUtilities'
+
 
 " markdown
 NeoBundleLazy 'kannokanno/previm', {
@@ -187,16 +195,44 @@ NeoBundleLazy 'shawncplus/phpcomplete.vim', {
 			\'autoload': {'filetypes': ['php']}}
 NeoBundleLazy 'joonty/vim-phpqa', {
 			\'autoload': {'filetypes': ['php']}}
-" Don't run messdetector on save (default = 1)
-let g:phpqa_messdetector_autorun = 0
-" Don't run codesniffer on save (default = 1)
-let g:phpqa_codesniffer_autorun = 0
+NeoBundleLazy 'vim-scripts/phpfolding.vim', {
+			\'autoload': {'filetypes': ['php']}}
+
+" javasctipt
+NeoBundleLazy 'pangloss/vim-javascript', {
+			\'autoload': {'filetypes': ['javascript']}}
+"NeoBundleLazy 'wookiehangover/jshint.vim', {
+"			\'autoload': {'filetypes': ['javascript']}}
+NeoBundleLazy 'Shutnik/jshint2.vim', {
+			\'autoload': {'filetypes': ['javascript']}}
 
 " html
 NeoBundleLazy 'othree/html5.vim', {
-			\'autoload': {'filetypes': ['html','smarty']}}
+			\'autoload': {'filetypes': ['html','smarty','php']}}
 NeoBundleLazy 'mattn/emmet-vim', {
-			\'autoload': {'filetypes': ['html','smarty']}}
+			\'autoload': {'filetypes': ['html','smarty','php']}}
+NeoBundleLazy 'tmhedberg/matchit', {
+			\'autoload': {'filetypes': ['html','smarty','php']}}
+
+" web
+NeoBundleLazy 'maksimr/vim-jsbeautify', {
+			\'autoload': {'filetypes': ['javascript','html','css']}}
+
+let s:bundle = neobundle#get("vim-phpqa")
+function! s:bundle.hooks.on_source(bundle)
+    let g:phpqa_messdetector_ruleset = "~/.vim/experiments/phpmd/ruleset.xml"
+    " Run messdetector on save (default = 1)
+    let g:phpqa_messdetector_autorun = 0
+    " Don't run codesniffer on save (default = 1)
+    let g:phpqa_codesniffer_autorun = 0
+    " Clover code coverage XML file
+    let g:phpqa_codecoverage_file = "clover.xml"
+    " Show markers for lines that ARE covered by tests (default = 1)
+    let g:phpqa_codecoverage_showcovered = 0
+    " workaround
+    let g:phpqa_codecoverage_regex = 0
+endfunction
+unlet s:bundle
 
 
 call neobundle#end()
@@ -209,26 +245,27 @@ filetype plugin indent on "required!
 " see http://superuser.com/questions/195022/vim-how-to-synchronize-nerdtree-with-current-opened-tab-file-path
 "
 "" stop the standard plugin
-"let g:netrw_silent = 1
-"let g:netrw_quiet  = 1
-"let g:loaded_netrw = 1
+let g:netrw_silent = 1
+let g:netrw_quiet  = 1
+let g:loaded_netrw = 1
 "
-"let NERDTreeQuitOnOpen  = 0   " don't collapse NERDTree when a file is opened
-"let NERDTreeMinimalUI   = 1
-"let NERDTreeDirArrows   = 0   " classic
+let NERDTreeQuitOnOpen  = 0   " don't collapse NERDTree when a file is opened
+let NERDTreeMinimalUI   = 1
+let NERDTreeDirArrows   = 0   " classic
 "let NERDTreeChDirMode   = 2   " change CWD whenever root changed
-"let NERDTreeIgnore      = []
-"let NERDTreeHijackNetrw = 0   " don't use secondary NERD tree
+let NERDTreeIgnore      = []
+let NERDTreeHijackNetrw = 0   " don't use secondary NERD tree
 "autocmd BufEnter * lcd %:p:h  " tab-independent (indeed!)
-"ca cd NERDTree
-"nnoremap <leader>o :<C-u>NERDTreeFind<CR>
-"nnoremap <leader>t :<C-u>NERDTreeToggle<CR>
+ca cd NERDTree
+nnoremap <leader>o :<C-u>NERDTreeFind<CR>
+nnoremap <leader>t :<C-u>NERDTreeToggle<CR>
 "
 ""
 "" plugin CtrlP
 ""
 "let g:ctrlp_use_migemo = 0
 let g:ctrlp_show_hidden = 1
+let g:ctrlp_follow_symlinks = 1
 "" Unite
 let g:unite_enable_start_insert = 1
 "
@@ -244,6 +281,7 @@ let g:unite_enable_start_insert = 1
 "let g:snipMate = {}
 "let g:snipMate.scope_aliases = {} 
 "let g:snipMate.scope_aliases.smarty = 'php'
+
 
 "
 " language
@@ -264,31 +302,51 @@ set background=light
 colorscheme solarized
 "hi SpecialKey ctermbg=232
 "hi Visual guibg=grey70
+set colorcolumn=81
 "
 "let g:unite_force_overwrite_statusline = 0
-"##### auto fcitx  ###########
+"##### auto fcitx switching  ###########
 " https://wiki.archlinux.org/index.php/Fcitx_%28%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87%29#Vim
-let g:input_toggle = 1
-function! FcitxIMEoff()
-   let s:input_status = system("fcitx-remote")
-   if s:input_status == 2
-      let g:input_toggle = 1
-      let l:a = system("fcitx-remote -c")
-   endif
-endfunction
+if s:is_unix
+    let g:input_toggle = 1
+    function! FcitxIMEoff()
+        let s:input_status = system("fcitx-remote")
+        if s:input_status == 2
+            let g:input_toggle = 1
+            let l:a = system("fcitx-remote -c")
+        endif
+    endfunction
 
-function! FcitxIMEon()
-   let s:input_status = system("fcitx-remote")
-   if s:input_status != 2 && g:input_toggle == 1
-      let l:a = system("fcitx-remote -o")
-      let g:input_toggle = 0
-   endif
-endfunction
+    function! FcitxIMEon()
+        let s:input_status = system("fcitx-remote")
+        if s:input_status != 2 && g:input_toggle == 1
+            let l:a = system("fcitx-remote -o")
+            let g:input_toggle = 0
+        endif
+    endfunction
 
-set ttimeoutlen=150
-autocmd vimrc InsertLeave * call FcitxIMEoff()
-autocmd vimrc InsertEnter * call FcitxIMEon()
-"##### auto fcitx end ######
+    set ttimeoutlen=150
+    autocmd vimrc InsertLeave * call FcitxIMEoff()
+    autocmd vimrc InsertEnter * call FcitxIMEon()
+endif
+
+"
+" grep
+"
+set grepprg=grep\ -rnHi\ --exclude=\\*.{orig,log,tpl.php,bk.php}\ --exclude=phpunit.phar\ --exclude=\\*lessc.inc.php
+" usage:
+"   :Grep find src -name '*.java' | xargs grep -Hn '\<parseInt\>'
+"   :Grep find src \( -path 'src/exclude1' -o -path 'src/exclude2' \) -prune -o -name '*.php' -print | xargs grep -rnH  'pattern'
+"   TODO: support `|' in pattern
+"
+command! -nargs=1 Grep call s:Grep(<f-args>)
+
+function! s:Grep(command)
+  let orig_grepprg = &l:grepprg
+  let &l:grepprg = substitute(a:command, '|', '\\|', 'g')
+  grep
+  let &l:grepprg = orig_grepprg
+endfunction
 
 "
 " Key mappings
@@ -301,7 +359,55 @@ nnoremap <silent> [unite]d :<C-u>Unite codic<CR>
 map <Space>c <Plug>(operator-camelize)
 nmap <Space>C <Plug>(operator-decamelize)
 
-" Load settings for each location.
+"
+" Commands
+"
+
+"function! Debug(msg)
+"    echo a:msg
+"endfunction
+"
+"function! s:Write()
+"    if line('$') > 1000
+"        let g:phpqa_messdetector_autorun = 0
+"        write
+"        let g:phpqa_messdetector_autorun = 1
+"    else
+"        write
+"    endif
+"endfunction
+"
+function! CommandCabbr(abbreviation, expansion)
+    execute 'cabbr ' . a:abbreviation . ' <c-r>=getcmdpos() == 1 && getcmdtype() == ":" ? "' . a:expansion . '" : "' . a:abbreviation . '"<CR>'
+endfunction
+
+
+if has("vim_starting")
+    command! TTags !ctags -R --fields=+aimS --languages=php
+    command! VVsplit execute "vsp|normal 80\<C-W>|"
+    "command WWithoutMD call s:write_without_phpmd()
+"    command! -nargs=+ CommandCabbr call CommandCabbr(<f-args>)
+
+"    command! -nargs=* Write call s:Write(<f-args>)
+"    CommandCabbr w Write
+
+    " Use it on itself to define a simpler abbreviation for itself.
+    " CommandCabbr ccab CommandCabbr
+    "command! JsonFormat2 :execute '%!python -m json.tool'
+    "  \ | :execute '%!python -c "import re,sys;chr=__builtins__.__dict__.get(\"unichr\", chr);sys.stdout.write(re.sub(r\"\\u[0-9a-f]{4}\", lambda x: chr(int(\"0x\" + x.group(0)[2:], 16)), sys.stdin.read()))"'
+    "  \ | :%s/ \+$//ge
+    "  \ | :set ft=javascript
+    "  \ | :1
+
+    " JsonFormat alternative; Firstly format, secondary unescape utf8.
+    "command! JsonFormat :execute '%!python -m json.tool'
+    "  \ | :execute '%!perl -e \'binmode STDOUT,":utf8";while($line = <>){$line =~ s/\\u([0-9a-zA-Z]{4})/chr(hex($1))/eg;print $line;}\''
+    " %!python -m json.tool
+    " %!perl -e 'binmode STDOUT,":utf8";while($line = <>){$line =~ s/\\u([0-9a-zA-Z]{4})/chr(hex($1))/eg;print $line;}'
+endif
+
+
+" Load settings (.vimprojects) for each location.
 " http://vim-users.jp/2009/12/hack112/
 augroup vimrc-local
   autocmd!
@@ -320,6 +426,6 @@ set encoding=utf-8
 set fileencodings=ucs-bom,iso-2022-jp-3,iso-2022-jp,eucjp-ms,euc-jisx0213,euc-jp,sjis,cp932,utf-8
 
 " experiments
-runtime experiments/script.vim
+"runtime experiments/script.vim
 
 " vim:set ft=vim sw=4 ts=4:
