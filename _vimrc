@@ -8,7 +8,7 @@ augroup vimrc
 augroup END
 
 set exrc            " enable per-directory .vimrc files
-"set secure          " disable unsafe commands in local .vimrc files
+set secure          " disable unsafe commands in local .vimrc files
 "let g:no_vimrc_example = 1 " Prevent including vimrc_example (see kaoriya's VIM  default)
 "set verbose=20
 "set nohidden " Override Japanese UTF-8 vim default set number
