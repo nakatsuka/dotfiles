@@ -147,6 +147,8 @@ NeoBundle 'tpope/vim-surround'
 " ## operator-camelize
 "NeoBundle 'kana/vim-operator-user'
 "NeoBundle 'tyru/operator-camelize.vim'
+" ## case keeping substitution and etc...
+NeoBundle 'tpope/vim-abolish'
 
 " NeoBundle 'vim-jp/vital.vim'
 " NeoBundle 'vim-scripts/TwitVim'
