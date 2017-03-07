@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<root>
+  <item>
+    <name>One Handed Typing</name>
+    <item>
+      <name>Reverse QWERTY layout while Space key pressed.</name>
+      <identifier>onehand.reverse_qwerty</identifier>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SPACE, KeyCode::VK_MODIFIER_EXTRA1, KeyCode::SPACE</autogen>
+
+      <!-- Reverse right keys -->
+      <autogen>__KeyToKey__ KeyCode::Y, ModifierFlag::EXTRA1, KeyCode::T</autogen>
+      <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::EXTRA1, KeyCode::G</autogen>
+      <autogen>__KeyToKey__ KeyCode::N, ModifierFlag::EXTRA1, KeyCode::B</autogen>
+      <autogen>__KeyToKey__ KeyCode::U, ModifierFlag::EXTRA1, KeyCode::R</autogen>
+      <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::EXTRA1, KeyCode::F</autogen>
+      <autogen>__KeyToKey__ KeyCode::M, ModifierFlag::EXTRA1, KeyCode::V</autogen>
+      <autogen>__KeyToKey__ KeyCode::I, ModifierFlag::EXTRA1, KeyCode::E</autogen>
+      <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::EXTRA1, KeyCode::D</autogen>
+      <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::EXTRA1, KeyCode::C</autogen>
+      <autogen>__KeyToKey__ KeyCode::O, ModifierFlag::EXTRA1, KeyCode::W</autogen>
+      <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::EXTRA1, KeyCode::S</autogen>
+      <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::EXTRA1, KeyCode::X</autogen>
+      <autogen>__KeyToKey__ KeyCode::P, ModifierFlag::EXTRA1, KeyCode::Q</autogen>
+      <autogen>__KeyToKey__ KeyCode::SEMICOLON, ModifierFlag::EXTRA1, KeyCode::A</autogen>
+      <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::EXTRA1, KeyCode::Z</autogen>
+
+      <!-- Reverse left keys -->
+      <autogen>__KeyToKey__ KeyCode::T, ModifierFlag::EXTRA1, KeyCode::Y</autogen>
+      <autogen>__KeyToKey__ KeyCode::G, ModifierFlag::EXTRA1, KeyCode::H</autogen>
+      <autogen>__KeyToKey__ KeyCode::B, ModifierFlag::EXTRA1, KeyCode::N</autogen>
+      <autogen>__KeyToKey__ KeyCode::R, ModifierFlag::EXTRA1, KeyCode::U</autogen>
+      <autogen>__KeyToKey__ KeyCode::F, ModifierFlag::EXTRA1, KeyCode::J</autogen>
+      <autogen>__KeyToKey__ KeyCode::V, ModifierFlag::EXTRA1, KeyCode::M</autogen>
+      <autogen>__KeyToKey__ KeyCode::E, ModifierFlag::EXTRA1, KeyCode::I</autogen>
+      <autogen>__KeyToKey__ KeyCode::D, ModifierFlag::EXTRA1, KeyCode::K</autogen>
+      <autogen>__KeyToKey__ KeyCode::C, ModifierFlag::EXTRA1, KeyCode::COMMA</autogen>
+      <autogen>__KeyToKey__ KeyCode::W, ModifierFlag::EXTRA1, KeyCode::O</autogen>
+      <autogen>__KeyToKey__ KeyCode::S, ModifierFlag::EXTRA1, KeyCode::L</autogen>
+      <autogen>__KeyToKey__ KeyCode::X, ModifierFlag::EXTRA1, KeyCode::DOT</autogen>
+      <autogen>__KeyToKey__ KeyCode::Q, ModifierFlag::EXTRA1, KeyCode::P</autogen>
+      <autogen>__KeyToKey__ KeyCode::A, ModifierFlag::EXTRA1, KeyCode::SEMICOLON</autogen>
+      <autogen>__KeyToKey__ KeyCode::Z, ModifierFlag::EXTRA1, KeyCode::SLASH</autogen>
+    </item>
+  </item>
+</root>
