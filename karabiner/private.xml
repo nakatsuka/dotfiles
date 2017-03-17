@@ -1,45 +1,550 @@
 <?xml version="1.0"?>
 <root>
   <item>
-    <name>One Handed Typing</name>
+    <name>Right Handed Typing</name>
     <item>
       <name>Reverse QWERTY layout while Space key pressed.</name>
-      <identifier>onehand.reverse_qwerty</identifier>
+      <identifier>righthand.reverse_qwerty</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::SPACE, KeyCode::VK_MODIFIER_EXTRA1, KeyCode::SPACE</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_R, KeyCode::COMMAND_R, KeyCode::SHIFT_R</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, KeyCode::SHIFT_R, KeyCode::SHIFT_R</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::FN, KeyCode::VK_MODIFIER_EXTRA1, KeyCode::FN</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::JIS_UNDERSCORE, KeyCode::OPTION_L, KeyCode::JIS_UNDERSCORE</autogen>
+      <autogen>__KeyOverlaidModifier__ KeyCode::B, KeyCode::SHIFT_L, KeyCode::B</autogen>
 
-      <!-- Reverse right keys -->
-      <autogen>__KeyToKey__ KeyCode::Y, ModifierFlag::EXTRA1, KeyCode::T</autogen>
-      <autogen>__KeyToKey__ KeyCode::H, ModifierFlag::EXTRA1, KeyCode::G</autogen>
-      <autogen>__KeyToKey__ KeyCode::N, ModifierFlag::EXTRA1, KeyCode::B</autogen>
-      <autogen>__KeyToKey__ KeyCode::U, ModifierFlag::EXTRA1, KeyCode::R</autogen>
-      <autogen>__KeyToKey__ KeyCode::J, ModifierFlag::EXTRA1, KeyCode::F</autogen>
-      <autogen>__KeyToKey__ KeyCode::M, ModifierFlag::EXTRA1, KeyCode::V</autogen>
-      <autogen>__KeyToKey__ KeyCode::I, ModifierFlag::EXTRA1, KeyCode::E</autogen>
-      <autogen>__KeyToKey__ KeyCode::K, ModifierFlag::EXTRA1, KeyCode::D</autogen>
-      <autogen>__KeyToKey__ KeyCode::COMMA, ModifierFlag::EXTRA1, KeyCode::C</autogen>
-      <autogen>__KeyToKey__ KeyCode::O, ModifierFlag::EXTRA1, KeyCode::W</autogen>
-      <autogen>__KeyToKey__ KeyCode::L, ModifierFlag::EXTRA1, KeyCode::S</autogen>
-      <autogen>__KeyToKey__ KeyCode::DOT, ModifierFlag::EXTRA1, KeyCode::X</autogen>
-      <autogen>__KeyToKey__ KeyCode::P, ModifierFlag::EXTRA1, KeyCode::Q</autogen>
-      <autogen>__KeyToKey__ KeyCode::SEMICOLON, ModifierFlag::EXTRA1, KeyCode::A</autogen>
-      <autogen>__KeyToKey__ KeyCode::SLASH, ModifierFlag::EXTRA1, KeyCode::Z</autogen>
+      <autogen>__KeyToKey__ KeyCode::JIS_KANA, KeyCode::CONTROL_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::JIS_EISUU, KeyCode::FN</autogen>
 
-      <!-- Reverse left keys -->
-      <autogen>__KeyToKey__ KeyCode::T, ModifierFlag::EXTRA1, KeyCode::Y</autogen>
-      <autogen>__KeyToKey__ KeyCode::G, ModifierFlag::EXTRA1, KeyCode::H</autogen>
-      <autogen>__KeyToKey__ KeyCode::B, ModifierFlag::EXTRA1, KeyCode::N</autogen>
-      <autogen>__KeyToKey__ KeyCode::R, ModifierFlag::EXTRA1, KeyCode::U</autogen>
-      <autogen>__KeyToKey__ KeyCode::F, ModifierFlag::EXTRA1, KeyCode::J</autogen>
-      <autogen>__KeyToKey__ KeyCode::V, ModifierFlag::EXTRA1, KeyCode::M</autogen>
-      <autogen>__KeyToKey__ KeyCode::E, ModifierFlag::EXTRA1, KeyCode::I</autogen>
-      <autogen>__KeyToKey__ KeyCode::D, ModifierFlag::EXTRA1, KeyCode::K</autogen>
-      <autogen>__KeyToKey__ KeyCode::C, ModifierFlag::EXTRA1, KeyCode::COMMA</autogen>
-      <autogen>__KeyToKey__ KeyCode::W, ModifierFlag::EXTRA1, KeyCode::O</autogen>
-      <autogen>__KeyToKey__ KeyCode::S, ModifierFlag::EXTRA1, KeyCode::L</autogen>
-      <autogen>__KeyToKey__ KeyCode::X, ModifierFlag::EXTRA1, KeyCode::DOT</autogen>
-      <autogen>__KeyToKey__ KeyCode::Q, ModifierFlag::EXTRA1, KeyCode::P</autogen>
-      <autogen>__KeyToKey__ KeyCode::A, ModifierFlag::EXTRA1, KeyCode::SEMICOLON</autogen>
-      <autogen>__KeyToKey__ KeyCode::Z, ModifierFlag::EXTRA1, KeyCode::SLASH</autogen>
+      <autogen>__KeyToKey__ KeyCode::MINUS, ModifierFlag::EXTRA1, KeyCode::MINUS, ModifierFlag::SHIFT_L</autogen>
+      <autogen>__KeyToKey__ KeyCode::JIS_HAT, ModifierFlag::EXTRA1, KeyCode::JIS_KANA</autogen>
+      <autogen>__KeyToKey__ KeyCode::JIS_YEN, ModifierFlag::EXTRA1, KeyCode::JIS_EISUU</autogen>
+
+      <autogen>__KeyToKey__ KeyCode::JIS_ATMARK, ModifierFlag::EXTRA1, KeyCode::TAB</autogen>
+
+      <autogen>__KeyToKey__ KeyCode::JIS_COLON, ModifierFlag::EXTRA1, KeyCode::JIS_EISUU</autogen>
+
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::6, ModifierFlag::NONE
+        @begin
+        KeyCode::6
+        @end
+        @begin
+        KeyCode::6, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::7, ModifierFlag::NONE
+        @begin
+        KeyCode::7
+        @end
+        @begin
+        KeyCode::7, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::8, ModifierFlag::NONE
+        @begin
+        KeyCode::8
+        @end
+        @begin
+        KeyCode::8, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::9, ModifierFlag::NONE
+        @begin
+        KeyCode::9
+        @end
+        @begin
+        KeyCode::9, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::MINUS, ModifierFlag::NONE
+        @begin
+        KeyCode::MINUS
+        @end
+        @begin
+        KeyCode::MINUS, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::JIS_HAT, ModifierFlag::NONE
+        @begin
+        KeyCode::JIS_HAT
+        @end
+        @begin
+        KeyCode::JIS_HAT, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::JIS_YEN, ModifierFlag::NONE
+        @begin
+        KeyCode::JIS_YEN
+        @end
+        @begin
+        KeyCode::JIS_YEN, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <!—- 2 -—>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::Y, ModifierFlag::NONE
+        @begin
+        KeyCode::Y
+        @end
+        @begin
+        KeyCode::Y, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::U, ModifierFlag::NONE
+        @begin
+        KeyCode::U
+        @end
+        @begin
+        KeyCode::U, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::I, ModifierFlag::NONE
+        @begin
+        KeyCode::I
+        @end
+        @begin
+        KeyCode::I, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::O, ModifierFlag::NONE
+        @begin
+        KeyCode::O
+        @end
+        @begin
+        KeyCode::O, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::P, ModifierFlag::NONE
+        @begin
+        KeyCode::P
+        @end
+        @begin
+        KeyCode::P, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::JIS_ATMARK, ModifierFlag::NONE
+        @begin
+        KeyCode::JIS_ATMARK
+        @end
+        @begin
+        KeyCode::JIS_ATMARK, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::JIS_BRACKET_LEFT, ModifierFlag::NONE
+        @begin
+        KeyCode::JIS_BRACKET_LEFT
+        @end
+        @begin
+        KeyCode::JIS_BRACKET_LEFT, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <!—- 3 -—>
+
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::SEMICOLON, ModifierFlag::NONE
+        @begin
+        KeyCode::SEMICOLON
+        @end
+        @begin
+        KeyCode::SEMICOLON, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::JIS_COLON, ModifierFlag::NONE
+        @begin
+        KeyCode::JIS_COLON
+        @end
+        @begin
+        KeyCode::JIS_COLON, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::JIS_BRACKET_RIGHT, ModifierFlag::NONE
+        @begin
+        KeyCode::JIS_BRACKET_RIGHT
+        @end
+        @begin
+        KeyCode::JIS_BRACKET_RIGHT, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <!—- 4 -—>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::N, ModifierFlag::NONE
+        @begin
+        KeyCode::N
+        @end
+        @begin
+        KeyCode::N, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::M, ModifierFlag::NONE
+        @begin
+        KeyCode::M
+        @end
+        @begin
+        KeyCode::M, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::COMMA, ModifierFlag::NONE
+        @begin
+        KeyCode::COMMA
+        @end
+        @begin
+        KeyCode::COMMA, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::DOT, ModifierFlag::NONE
+        @begin
+        KeyCode::DOT
+        @end
+        @begin
+        KeyCode::DOT, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::SLASH, ModifierFlag::NONE
+        @begin
+        KeyCode::SLASH
+        @end
+        @begin
+        KeyCode::SLASH, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+
+      <!—- reverse -—>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::6, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::5
+        @end
+        @begin
+        KeyCode::5, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::7, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::4
+        @end
+        @begin
+        KeyCode::4, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::8, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::3
+        @end
+        @begin
+        KeyCode::3, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::9, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::2
+        @end
+        @begin
+        KeyCode::2, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::0, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::1
+        @end
+        @begin
+        KeyCode::1, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <!—- 2 -—>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::Y, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::T
+        @end
+        @begin
+        KeyCode::T, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::U, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::R
+        @end
+        @begin
+        KeyCode::R, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::I, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::E
+        @end
+        @begin
+        KeyCode::E, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::O, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::W
+        @end
+        @begin
+        KeyCode::W, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::P, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::Q
+        @end
+        @begin
+        KeyCode::Q, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <!—- 3 -—>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::H, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::G
+        @end
+        @begin
+        KeyCode::G, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::J, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::F
+        @end
+        @begin
+        KeyCode::F, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::K, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::D
+        @end
+        @begin
+        KeyCode::D, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::L, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::S
+        @end
+        @begin
+        KeyCode::S, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::SEMICOLON, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::A
+        @end
+        @begin
+        KeyCode::A, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <!—- 4 -—>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::N, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::B
+        @end
+        @begin
+        KeyCode::B, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::M, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::V
+        @end
+        @begin
+        KeyCode::V, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::COMMA, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::C
+        @end
+        @begin
+        KeyCode::C, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::DOT, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::X
+        @end
+        @begin
+        KeyCode::X, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::SLASH, ModifierFlag::EXTRA1
+        @begin
+        KeyCode::Z
+        @end
+        @begin
+        KeyCode::Z, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
     </item>
   </item>
 </root>
