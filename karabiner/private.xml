@@ -6,22 +6,12 @@
       <name>Reverse QWERTY layout while Space key pressed.</name>
       <identifier>righthand.reverse_qwerty</identifier>
       <autogen>__KeyOverlaidModifier__ KeyCode::SPACE, KeyCode::VK_MODIFIER_EXTRA1, KeyCode::SPACE</autogen>
-      <autogen>__KeyOverlaidModifier__ KeyCode::SHIFT_R, KeyCode::COMMAND_R, KeyCode::SHIFT_R</autogen>
-      <autogen>__KeyOverlaidModifier__ KeyCode::COMMAND_R, KeyCode::SHIFT_R, KeyCode::SHIFT_R</autogen>
-      <autogen>__KeyOverlaidModifier__ KeyCode::FN, KeyCode::VK_MODIFIER_EXTRA1, KeyCode::FN</autogen>
-      <autogen>__KeyOverlaidModifier__ KeyCode::JIS_UNDERSCORE, KeyCode::OPTION_L, KeyCode::JIS_UNDERSCORE</autogen>
-      <autogen>__KeyOverlaidModifier__ KeyCode::B, KeyCode::SHIFT_L, KeyCode::B</autogen>
 
-      <autogen>__KeyToKey__ KeyCode::JIS_KANA, KeyCode::CONTROL_L</autogen>
-      <autogen>__KeyToKey__ KeyCode::JIS_EISUU, KeyCode::FN</autogen>
-
-      <autogen>__KeyToKey__ KeyCode::MINUS, ModifierFlag::EXTRA1, KeyCode::MINUS, ModifierFlag::SHIFT_L</autogen>
       <autogen>__KeyToKey__ KeyCode::JIS_HAT, ModifierFlag::EXTRA1, KeyCode::JIS_KANA</autogen>
       <autogen>__KeyToKey__ KeyCode::JIS_YEN, ModifierFlag::EXTRA1, KeyCode::JIS_EISUU</autogen>
 
       <autogen>__KeyToKey__ KeyCode::JIS_ATMARK, ModifierFlag::EXTRA1, KeyCode::TAB</autogen>
-
-      <autogen>__KeyToKey__ KeyCode::JIS_COLON, ModifierFlag::EXTRA1, KeyCode::JIS_EISUU</autogen>
+      <autogen>__KeyToKey__ KeyCode::JIS_BRACKET_LEFT, ModifierFlag::EXTRA1, KeyCode::ESCAPE</autogen>
 
 
       <autogen>
@@ -541,6 +531,23 @@
         @end
         @begin
         KeyCode::Z, ModifierFlag::SHIFT_L,
+        @end
+        Option::NOREPEAT,
+      </autogen>
+
+    </item>
+    <item>
+      <name>Use JIS layout by right hand</name>
+      <identifier>righthand.qwerty_jis</identifier>
+
+      <autogen>
+        __HoldingKeyToKey__
+        KeyCode::JIS_EISUU, ModifierFlag::NONE
+        @begin
+        KeyCode::SPACE
+        @end
+        @begin
+        KeyCode::SPACE
         @end
         Option::NOREPEAT,
       </autogen>
