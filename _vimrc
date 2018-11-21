@@ -191,7 +191,7 @@ NeoBundleLazy 'godlygeek/tabular', {
 NeoBundle 'plasticboy/vim-markdown'
 
 " debug
-NeoBundle 'joonty/vdebug', 'bg-connection'
+"NeoBundle 'joonty/vdebug', 'bg-connection'
 " php
 NeoBundleLazy 'shawncplus/phpcomplete.vim', {
 			\'autoload': {'filetypes': ['php']}}
@@ -300,7 +300,7 @@ set helplang=en,ja
 "
 syntax enable
 set background=light
-"let g:solarized_termcolors=256
+let g:solarized_termcolors=256
 colorscheme solarized
 "hi SpecialKey ctermbg=232
 "hi Visual guibg=grey70
